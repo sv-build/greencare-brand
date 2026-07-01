@@ -1,0 +1,14 @@
+{
+  "name": "greencare",
+  "owner": {
+    "name": "SV Studio"
+  },
+  "description": "Identidad visual de Green Care para Claude Code.",
+  "plugins": [
+    {
+      "name": "greencare-brand",
+      "source": "./plugins/greencare-brand",
+      "description": "Aplica la marca de Green Care (paleta, tipografía, logo, reglas) a cualquier artefacto: documentos, slides, dashboards, HTML, correos."
+    }
+  ]
+}

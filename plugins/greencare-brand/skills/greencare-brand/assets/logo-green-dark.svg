@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 300" role="img" aria-label="Green Care">
+  <!-- Logo monocromo verde oscuro: 1 tinta, impresión, sellos, marcas de agua sobre fondo claro. -->
+  <g fill="#296147" transform="translate(278,150)">
+    <path d="M 0,0 C -12,-19 -13,-62 0,-86 C 13,-62 12,-19 0,0 Z" transform="rotate(6)"/>
+    <path d="M 0,0 C -12,-19 -13,-62 0,-86 C 13,-62 12,-19 0,0 Z" transform="rotate(42)"/>
+    <path d="M 0,0 C -12,-19 -13,-62 0,-86 C 13,-62 12,-19 0,0 Z" transform="rotate(-96)"/>
+  </g>
+  <text x="280" y="250" text-anchor="middle"
+        font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif"
+        font-size="82" font-weight="800" letter-spacing="1.5" fill="#296147">GREENCARE</text>
+</svg>

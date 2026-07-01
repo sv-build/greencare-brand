@@ -1,0 +1,77 @@
+/* Green Care — design tokens. Pegar en cualquier <style> o hoja CSS. */
+:root {
+  /* Paleta oficial */
+  --gc-green-dark: #296147; /* verde oscuro: títulos y fondos */
+  --gc-green-leaf: #68AE2A; /* verde hoja: color principal / marca */
+  --gc-orange:     #F3911D; /* naranja: acento, resaltar un dato */
+  --gc-cream:      #F0F2E5; /* crema: fondo suave */
+
+  /* Neutros de apoyo */
+  --gc-white: #FFFFFF;
+  --gc-ink:   #22302A; /* texto de cuerpo sobre fondo claro (verde casi negro) */
+
+  /* Roles semánticos (usar estos en el código, no el hex crudo) */
+  --gc-brand:        var(--gc-green-leaf);
+  --gc-brand-deep:   var(--gc-green-dark);
+  --gc-accent:       var(--gc-orange);
+  --gc-surface:      var(--gc-white);
+  --gc-surface-soft: var(--gc-cream);
+  --gc-text:         var(--gc-ink);
+  --gc-text-on-dark: var(--gc-cream);
+
+  /* Tipografía: system font stack (cero dependencias, carga instantánea) */
+  --gc-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Forma y ritmo — esquinas SIEMPRE redondeadas (nunca rectas). */
+  --gc-radius-sm:   8px;   /* inputs, chips, badges, celdas */
+  --gc-radius:      12px;  /* botones, tarjetas (radio por defecto) */
+  --gc-radius-lg:   20px;  /* paneles grandes, modales, contenedores */
+  --gc-radius-pill: 999px; /* botones pill, tags, avatares */
+  --gc-space:     8px;   /* unidad base; usar múltiplos: 8/16/24/32 */
+  --gc-shadow:    0 2px 8px rgba(41, 97, 71, .12);
+
+  /* ─────────────────────────────────────────────────────────────
+     PALETA FUNCIONAL — solo para gráficos, dashboards y estados.
+     NO es la paleta de marca (esa son los 4 colores de arriba).
+     Estos derivan de la marca pero existen para DISTINGUIR datos.
+     Guía de uso: references/data-viz.md
+     ───────────────────────────────────────────────────────────── */
+
+  /* Categórica: series/categorías. Usar en orden 1→8. */
+  --gc-cat-1: #68AE2A; /* verde hoja (marca) */
+  --gc-cat-2: #2A9D8F; /* teal */
+  --gc-cat-3: #F3911D; /* naranja (marca) */
+  --gc-cat-4: #E9C46A; /* dorado */
+  --gc-cat-5: #3A7CA5; /* azul sereno */
+  --gc-cat-6: #C1542C; /* terracota */
+  --gc-cat-7: #7A6C9B; /* ciruela */
+  --gc-cat-8: #4C6B54; /* oliva oscuro */
+
+  /* Secuencial (verde claro → oscuro): intensidad de un solo dato. */
+  --gc-seq-1: #EAF3DD;
+  --gc-seq-2: #B9D98C;
+  --gc-seq-3: #7FBE43;
+  --gc-seq-4: #4A8B3C;
+  --gc-seq-5: #235238;
+
+  /* Divergente (negativo → centro → positivo): datos +/-. */
+  --gc-div-neg2: #B5451F;
+  --gc-div-neg1: #E7A15A;
+  --gc-div-mid:  #EDEFE0;
+  --gc-div-pos1: #9BCB5E;
+  --gc-div-pos2: #296147;
+
+  /* Neutros verdosos: ejes, grillas, bordes, texto secundario. */
+  --gc-n-50:  #F0F2E5;
+  --gc-n-100: #E2E6D6;
+  --gc-n-200: #CBD2BE;
+  --gc-n-400: #9AA391;
+  --gc-n-600: #5E6B5C;
+  --gc-n-900: #22302A;
+
+  /* Estados (contraste de texto verificado sobre su -bg claro). */
+  --gc-success:    #3E7D25; --gc-success-bg: #E7F1D9;
+  --gc-warning:    #F3911D; --gc-warning-bg: #FCE9D0; /* texto: usar --gc-n-900 encima */
+  --gc-danger:     #C0392B; --gc-danger-bg:  #F6DAD6;
+  --gc-info:       #3A7CA5; --gc-info-bg:    #DCE9F1;
+}
