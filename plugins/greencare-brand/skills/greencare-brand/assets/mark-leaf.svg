@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Green Care">
+  <!-- Ícono ya coloreado en verde hoja: úsalo con <img> cuando no puedas inlinear el SVG. -->
+  <g fill="#68AE2A" transform="translate(94,150)">
+    <path d="M 0,0 C -12,-19 -13,-62 0,-86 C 13,-62 12,-19 0,0 Z" transform="rotate(6)"/>
+    <path d="M 0,0 C -12,-19 -13,-62 0,-86 C 13,-62 12,-19 0,0 Z" transform="rotate(42)"/>
+    <path d="M 0,0 C -12,-19 -13,-62 0,-86 C 13,-62 12,-19 0,0 Z" transform="rotate(-96)"/>
+  </g>
+</svg>

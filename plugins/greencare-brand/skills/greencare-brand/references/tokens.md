@@ -73,17 +73,24 @@ Ningún elemento de UI a 90°. Escala de radios:
 
 | Archivo | Cuándo |
 |---------|--------|
-| `assets/logo.svg` | Primario, sobre fondo claro (crema/blanco). Hojas verde hoja + wordmark verde oscuro. |
-| `assets/logo-white.svg` | Sobre fondo oscuro, foto o el verde oscuro de marca. |
+| `assets/logo.svg` | Lockup **apilado** (ícono arriba, wordmark abajo), fondo claro. Usos centrados/verticales (portadas, tarjetas). |
+| `assets/logo-horizontal.svg` | Lockup **horizontal** (ícono izq. + wordmark der.), fondo claro. **Encabezados, barras, firmas de correo.** |
+| `assets/logo-white.svg` | Apilado en blanco, sobre fondo oscuro, foto o el verde oscuro de marca. |
 | `assets/logo-green-dark.svg` | Una sola tinta sobre fondo claro (impresión, sellos, marca de agua). |
-| `assets/mark.svg` | Solo el ícono (3 hojas), `fill=currentColor`: favicon, avatar, viñetas, watermark. Recolorea con `color:` en CSS. |
+| `assets/mark.svg` | Solo el ícono (3 hojas), `fill=currentColor`. Recolorea **solo inline** (insertado en el HTML); vía `<img>` sale negro. |
+| `assets/mark-leaf.svg` | Ícono ya en verde hoja: para `<img>` (viñetas, favicon, watermark) sin inlinear. |
 | `assets/logo-hero.png` | Render decorativo con glow para fondos/hero oscuros. No usar como logo funcional sobre claro. |
 
 **Reglas de uso**
 - Zona de protección: deja alrededor un margen ≥ la altura de una hoja del ícono.
-- Tamaño mínimo legible del lockup completo: ~120px de ancho; por debajo, usa solo `mark.svg`.
+- Tamaños mínimos legibles:
+  - Apilado (`logo.svg`, ratio ~1.9:1): **≥ 120px de ancho** (~64px de alto).
+  - Horizontal (`logo-horizontal.svg`, ratio ~3.7:1): **≥ 28px de alto** (~103px de ancho).
+  - Por debajo de esos mínimos, o en espacios muy chicos, usa **solo el ícono** (`mark.svg`/`mark-leaf.svg`).
+- En **encabezados** usa el horizontal (el apilado se vuelve ilegible a poca altura).
+- Recolorear el ícono: **inline** el `<svg>` y usa `color:`/`fill`; con `<img>` usa `mark-leaf.svg`.
 - No deformes, rotes, ni cambies los colores fuera de las variantes provistas.
-- No pongas `logo.svg` (versión clara) sobre fondos oscuros; ahí va `logo-white.svg`.
+- No pongas las versiones claras sobre fondos oscuros; ahí va `logo-white.svg`.
 
 > Nota: el logo SVG es una **reconstrucción limpia y escalable** del mark. Si Green Care
 > entrega el archivo vectorial oficial, reemplaza los `.svg` de `assets/` conservando los nombres.

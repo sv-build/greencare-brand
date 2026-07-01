@@ -14,24 +14,29 @@ button, .btn, input, select, textarea, .chip, .badge { border-radius: var(--gc-r
 .card, .panel, .btn-lg { border-radius: var(--gc-radius); }
 .modal, .hero, .container-rounded { border-radius: var(--gc-radius-lg); }
 .pill, .tag, .avatar { border-radius: var(--gc-radius-pill); }
-img, .chart, table, figure { border-radius: var(--gc-radius); overflow: hidden; }
+img, .chart, figure { border-radius: var(--gc-radius); overflow: hidden; }
+/* Tablas: redondea el CONTENEDOR, no el <table> (overflow sobre <table> es poco fiable). */
+.table-wrap { border-radius: var(--gc-radius); overflow: hidden; box-shadow: var(--gc-shadow); }
+.table-wrap table { width: 100%; border-collapse: collapse; }
 ```
+Para redondear una tabla, envuélvela: `<div class="table-wrap"><table>…</table></div>`.
 
 ## HTML / landing / dashboard
 - Pega `assets/tokens.css` y usa las variables `--gc-*` (nunca el hex crudo).
 - Esquinas redondeadas en todo (ver "Base de UI" arriba); nunca elementos a 90°.
 - Estructura típica:
-  - Header con `logo.svg` (alto ~32–40px) sobre crema/blanco.
+  - Header con `logo-horizontal.svg` (alto ~32–40px) sobre crema/blanco.
   - Títulos verde oscuro; cuerpo tinta; links verde hoja con subrayado en hover.
   - Tarjetas: fondo blanco, `border-radius:var(--gc-radius)`, `box-shadow:var(--gc-shadow)`.
   - Un botón/dato clave en naranja (`background:var(--gc-accent)`, texto verde oscuro o blanco grande).
   - Secciones oscuras: `background:var(--gc-brand-deep)`, texto crema, `logo-white.svg`.
-- Íconos: usa `mark.svg` con `color:` para viñetas o watermark sutil.
+- Íconos/viñetas: **inline** el `mark.svg` y dale `color:var(--gc-brand)` (así hereda el verde hoja);
+  si lo cargas como `<img>`, usa `mark-leaf.svg` (ya viene coloreado).
 
 ```html
 <link rel="stylesheet" href="assets/tokens.css">
 <header style="background:var(--gc-surface-soft);padding:16px 24px">
-  <img src="assets/logo.svg" alt="Green Care" height="36">
+  <img src="assets/logo-horizontal.svg" alt="Green Care" height="36">
 </header>
 <h1 style="font:800 48px/1.1 var(--gc-font);color:var(--gc-brand-deep)">Título</h1>
 <p style="font:400 17px/1.6 var(--gc-font);color:var(--gc-text)">Cuerpo…</p>
@@ -43,9 +48,29 @@ img, .chart, table, figure { border-radius: var(--gc-radius); overflow: hidden; 
 - Portada: fondo crema o verde oscuro con `logo` (variante según fondo), título grande.
 - Encabezados en verde oscuro; texto en tinta; interlineado 1.5–1.6.
 - Resalta cifras/hallazgos clave con un fondo o texto naranja — con moderación.
-- Viñetas con el ícono de hoja (`mark.svg`) o un guión simple.
-- Pie de página con el `mark.svg` pequeño + "Green Care".
+- Viñetas con el ícono de hoja (`mark-leaf.svg` vía `<img>`, o `mark.svg` inline) o un guión simple.
+- Pie de página con el `mark-leaf.svg` pequeño + "Green Care".
 - Al exportar a PDF, usa la paleta como colores de estilo, no capturas de pantalla.
+
+## Impresión / PDF (fichas, informes, one-pagers)
+Cuando el artefacto se imprime o exporta a PDF (Cmd/Ctrl+P → Guardar como PDF):
+- Tamaño y márgenes: `@page { size: A4; margin: 16mm; }` (o `Letter` según el cliente).
+- El fondo crema de marca no se imprime por defecto; fuérzalo con
+  `-webkit-print-color-adjust: exact; print-color-adjust: exact;` en `body`/secciones con color.
+- Evita **secciones oscuras a sangre completa** (gastan tinta y se ven sucias impresas); reserva el
+  verde oscuro para cabecera/pie o bloques chicos. Sobre papel, prioriza fondo claro + texto verde oscuro.
+- Evita cortes feos: `.card, tr, .no-break { break-inside: avoid; }`.
+- Oculta lo que no aplica en papel (nav, botones): `@media print { .no-print { display:none } }`.
+- Usa SVG para el logo (nítido a cualquier DPI); no rasterices.
+
+```css
+@page { size: A4; margin: 16mm; }
+@media print {
+  body { -webkit-print-color-adjust: exact; print-color-adjust: exact; background: var(--gc-surface-soft); }
+  .card, tr, figure { break-inside: avoid; }
+  .no-print { display: none; }
+}
+```
 
 ## Presentaciones / slides
 - Plantilla base: fondo crema; barra o filete superior verde hoja.

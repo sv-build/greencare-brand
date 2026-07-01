@@ -17,6 +17,8 @@ según el fondo. Natural, limpio, con aire.
 - **Verde oscuro `#296147`** — títulos, texto sobre claro, fondos de secciones oscuras.
 - **Verde hoja `#68AE2A`** — color principal de marca: íconos, fills, barras, detalles.
 - **Naranja `#F3911D`** — acento: resaltar **un** dato clave, CTA. Escaso a propósito.
+  "Una vista" = lo que se ve de un vistazo: una pantalla, una diapositiva o **una sección** de un
+  documento. En un doc largo va **un naranja por sección**, no uno por documento entero.
 - **Crema `#F0F2E5`** — fondo suave, alternativa cálida al blanco.
 - Apoyo: blanco `#FFFFFF` (superficie), tinta `#22302A` (cuerpo de texto largo).
 
@@ -53,14 +55,19 @@ Aplica también a imágenes y contenedores de gráficos (`border-radius` + `over
 tarjetas, tablas e imágenes de una vez.
 
 ## Logo (en `assets/`)
-- `logo.svg` — primario, sobre fondo claro.
-- `logo-white.svg` — sobre fondo oscuro/foto.
+- `logo.svg` — lockup **apilado** (ícono arriba, wordmark abajo). Para usos centrados/verticales.
+- `logo-horizontal.svg` — lockup **horizontal** (ícono izq. + wordmark der.). **Úsalo en encabezados
+  y barras** (a poca altura el apilado queda ilegible).
+- `logo-white.svg` — apilado en blanco, sobre fondo oscuro/foto.
 - `logo-green-dark.svg` — una sola tinta (impresión, marca de agua).
-- `mark.svg` — solo el ícono de 3 hojas, `fill=currentColor` (favicon, avatar, viñetas, watermark).
+- `mark.svg` — solo el ícono, `fill=currentColor`. Recolorea **solo si lo insertas inline** en el
+  HTML (vía `<img>` el `currentColor` sale negro). Para `<img>` usa `mark-leaf.svg`.
+- `mark-leaf.svg` — el ícono ya en verde hoja, listo para `<img>` (viñetas, favicon, watermark).
 - `logo-hero.png` — render decorativo con glow para fondos oscuros; **no** es el logo funcional.
 
 Reglas: respeta la zona de protección (≈ una hoja de margen), no deformes ni recolorees fuera de
-las variantes, y elige la versión según el fondo. Detalle en `references/tokens.md`.
+las variantes, y elige la versión según el fondo. En espacios muy chicos usa solo el ícono
+(`mark.svg`/`mark-leaf.svg`), no el lockup. Tamaños y detalle en `references/tokens.md`.
 
 ## Cómo aplicarla a cada artefacto
 La marca es la misma; cambia el cómo. Abre **`references/artifacts.md`** para la receta concreta
